@@ -662,7 +662,7 @@ if __name__ == '__main__':
     LOGGER.info("Successfully loaded")
     main()
 
-#𝕭𝖑𝖆𝖈𝖐𝕯𝖗𝖆𝖌𝖔𝖓 bot
+"""𝕭𝖑𝖆𝖈𝖐𝕯𝖗𝖆𝖌𝖔𝖓 bot
 a modular telegram Python bot running on python3 with an sqlalchemy database.
 
 Originally a simple group management bot with multiple admin features, it has evolved, becoming extremely modular and 
@@ -676,4 +676,4 @@ Join the [learning channel](https://t.me/EnglishFreeLectures) For Free Knowledge
 
 Alternatively, [find me on telegram](https://t.me/virtualjust0and1)! (Keep all support questions in the support chat, where more people can help you.)
 
-This Bot Is Made By [@virtualjust0and1](https://t.me/virtualjust0and1)
+This Bot Is Made By [@virtualjust0and1](https://t.me/virtualjust0and1)"""
