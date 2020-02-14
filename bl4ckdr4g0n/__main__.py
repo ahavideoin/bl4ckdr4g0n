@@ -23,7 +23,7 @@ from bl4ckdr4g0n.modules.translations.strings import tld, tld_help
 PM_START = """Hello {}, my name is {}!
 I'm here to help you manage your groups!.
 you can meet my master in this [Group](https://t.me/joinchat/EnD9SkO9Awougo5VjknbrQ)
-I'm a group manager bot and my master is [Linux_404](https://t.me/Linux_404)
+I'm a group manager bot and my master is [@jnldkbmk](https://t.me/Linux0)
 Want to add me to your group? [Click here!](t.me/dr4gonbot?startgroup=true)
 Click (Help) button to find out more.
 """
