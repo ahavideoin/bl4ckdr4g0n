@@ -23,7 +23,7 @@ from bl4ckdr4g0n.modules.translations.strings import tld, tld_help
 PM_START = """Hello {}, my name is {}!
 I'm here to help you manage your groups!.
 you can meet my master in this [Group](https://t.me/joinchat/EnD9SkO9Awougo5VjknbrQ)
-I'm a group manager bot and my master is [@jnldkbmk](https://t.me/Linux0)
+I'm a group manager bot and my master is [@jnldkbmk](https://t.me/jnldkbmk)
 Want to add me to your group? [Click here!](t.me/dr4gonbot?startgroup=true)
 Click (Help) button to find out more.
 """
@@ -123,7 +123,7 @@ def start(bot: Bot, update: Update, args: List[str]):
         else:
             send_start(bot, update)
     else:
-        update.effective_message.reply_text("hey my master is @Linux_404")
+        update.effective_message.reply_text("hoi, i'm alive! PM me if you want some help.")
 
 
 def send_start(bot, update):
@@ -172,7 +172,7 @@ def control_panel(bot, update):
 
         LOGGER.info(query.data)
     else:
-        M_match = "MenheraChan is the best bot"  # LMAO, don't uncomment
+        M_match = "blackdragon is the lit af"  # LMAO, don't uncomment
 
     if M_match:
         text = "*Control panel* 🛠"
