@@ -7,25 +7,6 @@ from telegram.ext import Filters, MessageHandler, run_async
 from bl4ckdr4g0n import dispatcher
 from bl4ckdr4g0n.modules.disable import DisableAbleCommandHandler
 
-ABUSE_STRINGS = (
-    "Fuck off",
-    "Stfu go fuck yourself",
-    "Ur mum gey",
-    "Ur dad lesbo",
-    "Bsdk",
-    "Nigga",
-    "Ur granny tranny",
-    "you noob",
-	"Relax your Rear,ders nothing to fear,The Rape train is finally here",
-	"Stfu bc",
-	"Stfu and Gtfo U nub",
-	"GTFO bsdk",
-    "CUnt",
-     "Madharchod",
-    " Gay is here",
-    "Ur dad gey bc "
-)
-
 EYES = [
     ['⌐■', '■'],
     [' ͠°', ' °'],
@@ -253,7 +234,6 @@ __help__ = """
  - /table : get flip/unflip :v.
  - /decide : Randomly answers yes/no/maybe
  - /toss : Tosses A coin
- - /abuse : Abuses the cunt
  - /tts <any text> : Converts text to speech
  - /bluetext : check urself :V
  - /roll : Roll a dice.
@@ -262,7 +242,6 @@ __help__ = """
 
 __mod_name__ = "Extras"
 
-ABUSE_HANDLER = DisableAbleCommandHandler("abuse", abuse)
 ROLL_HANDLER = DisableAbleCommandHandler("roll", roll)
 TOSS_HANDLER = DisableAbleCommandHandler("toss", toss)
 BLUETEXT_HANDLER = DisableAbleCommandHandler("bluetext", bluetext)
