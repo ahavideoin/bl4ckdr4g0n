@@ -24,10 +24,10 @@ class Config(object):
     DEL_CMDS = True  # Whether or not you should delete "blue text must click" commands
     STRICT_ANTISPAM = True
     WORKERS = 8  # Number of subthreads to use. This is the recommended amount - see for yourself what works best!
-    BAN_STICKER = 'CAADBQADfgADttzjKJWTC3CM9l78FgQ'  # banhammer marie sticker
+    BAN_STICKER = ''  # banhammer marie sticker
     STRICT_GBAN = True
     STRICT_GMUTE = True
-    ALLOW_EXCL = False  # Allow ! commands as well as /
+    ALLOW_EXCL = True  # Allow ! commands as well as /
     API_OPENWEATHER = ''  # OpenWeather API
 
     # MEMES
