@@ -37,17 +37,7 @@ from requests import get
 
 BOT_STRINGS = (
     "ｷﾀﾜァ*･゜ﾟ･*:.｡..｡.:*･゜(n‘∀‘)ηﾟ･*:.｡. .｡.:*･゜ﾟ･* !!!!! oh my god i'm a Bot!!!",
-)    
-
-RAPE_STRINGS = (
-     "Rape Done Drink The Cum",
-     "The user has been successfully raped",
-     "Dekho Bhaiyya esa hai! Izzat bachailo apni warna Gaand maar lenge tumhari",
-     "Relax your Rear, ders nothing to fear,The Rape train is finally here",
-     "Dont Rape Too much Bsdk.",
-     "Rape coming... Raped! haha :p",
-     "Lodu Andha hai kya Yaha tera rape ho raha hai aur tu abhi tak yahi gaand mara raha hai lulz",
-)    
+)
     
     
 @run_async
