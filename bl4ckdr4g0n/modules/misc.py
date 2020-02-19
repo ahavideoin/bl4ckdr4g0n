@@ -43,20 +43,6 @@ BOT_STRINGS = (
 @run_async
 def bot(bot: Bot, update: Update):
     update.effective_message.reply_text(random.choice(BOT_STRINGS))
-    
-
-@run_async
-def pubg(bot: Bot, update: Update):
-    # reply to correct message
-    reply_text = update.effective_message.reply_to_message.reply_text if update.effective_message.reply_to_message else update.effective_message.reply_text
-    reply_text("PUBG Chutiyo ka Game! Be lyk moi Use Tik-Tok and become Chakka")
-    
-    
-@run_async
-def rape(bot: Bot, update: Update):
-    # reply to correct message
-    reply_text = update.effective_message.reply_to_message.reply_text if update.effective_message.reply_to_message else update.effective_message.reply_text
-    reply_text(random.choice(RAPE_STRINGS)) 
 
 
 @run_async
