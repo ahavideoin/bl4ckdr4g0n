@@ -83,10 +83,10 @@ for module_name in ALL_MODULES:
 def send_help(chat_id, text, keyboard=None):
     if not keyboard:
         keyboard = InlineKeyboardMarkup(paginate_modules(chat_id, 0, HELPABLE, "help"))
-    dispatcher.bot.send_message(chat_id=chat_id,
-                                text=text,
-                                parse_mode=ParseMode.MARKDOWN,
-                                reply_markup=keyboard)
+    bl4ckdr4g0n.dispatcher.bot.send_message(chat_id=chat_id,
+                                            text=text,
+                                            parse_mode=ParseMode.MARKDOWN,
+                                            reply_markup=keyboard)
 
 
 @run_async
@@ -106,7 +106,7 @@ def start(bot: Bot, update: Update, args: List[str]):
         if len(args) >= 1:
             if args[0].lower() == "help":
                 send_help(update.effective_chat.id, tld(chat.id, "send-help").format(
-                    "" if not ALLOW_EXCL else tld(chat.id, "\nAll commands can either be used with `/` or `!`.\n")))
+                    "" if not bl4ckdr4g0n.ALLOW_EXCL else tld(chat.id, "\nAll commands can either be used with `/` or `!`.\n")))
 
             elif args[0].lower().startswith("stngs_"):
                 match = re.match("stngs_(.*)", args[0].lower())
@@ -147,7 +147,7 @@ def send_start(bot, update):
 
 
 def control_panel(bot, update):
-    LOGGER.info("Control panel")
+    bl4ckdr4g0n.LOGGER.info("Control panel")
     chat = update.effective_chat
     user = update.effective_user
 
@@ -169,7 +169,7 @@ def control_panel(bot, update):
         G_match = re.match(r"cntrl_panel_G", query.data)
         back_match = re.match(r"help_back", query.data)
 
-        LOGGER.info(query.data)
+        bl4ckdr4g0n.LOGGER.info(query.data)
     else:
         M_match = "blackdragon is the lit af"  # LMAO, don't uncomment
 
@@ -190,7 +190,7 @@ def control_panel(bot, update):
             if member.status in ('administrator', 'creator'):
                 text += f"\nConnected chat - *{chatG.title}* (you {member.status})"
                 keyboard += [[InlineKeyboardButton(text="👥 Group settings", callback_data="cntrl_panel_G_back")]]
-            elif user.id in SUDO_USERS:
+            elif user.id in bl4ckdr4g0n.SUDO_USERS:
                 text += f"\nConnected chat - *{chatG.title}* (you sudo)"
                 keyboard += [
                     [InlineKeyboardButton(text="👥 Group settings (SUDO)", callback_data="cntrl_panel_G_back")]]
@@ -295,27 +295,27 @@ def error_callback(bot, update, error):
     try:
         raise error
     except Unauthorized:
-        LOGGER.warning("NO NONO1")
-        LOGGER.warning(error)
+        bl4ckdr4g0n.LOGGER.warning("NO NONO1")
+        bl4ckdr4g0n.LOGGER.warning(error)
         # remove update.message.chat_id from conversation list
     except BadRequest:
-        LOGGER.warning("NO NONO2")
-        LOGGER.warning("BadRequest caught")
-        LOGGER.warning(error)
+        bl4ckdr4g0n.LOGGER.warning("NO NONO2")
+        bl4ckdr4g0n.LOGGER.warning("BadRequest caught")
+        bl4ckdr4g0n.LOGGER.warning(error)
 
         # handle malformed requests - read more below!
     except TimedOut:
-        LOGGER.warning("NO NONO3")
+        bl4ckdr4g0n.LOGGER.warning("NO NONO3")
         # handle slow connection problems
     except NetworkError:
-        LOGGER.warning("NO NONO4")
+        bl4ckdr4g0n.LOGGER.warning("NO NONO4")
         # handle other connection problems
     except ChatMigrated as err:
-        LOGGER.warning("NO NONO5")
-        LOGGER.warning(err)
+        bl4ckdr4g0n.LOGGER.warning("NO NONO5")
+        bl4ckdr4g0n.LOGGER.warning(err)
         # the chat_id of a group has changed, use e.new_chat_id instead
     except TelegramError:
-        LOGGER.warning(error)
+        bl4ckdr4g0n.LOGGER.warning(error)
         # handle all other telegram related errors
 
 
@@ -345,8 +345,8 @@ def help_button(bot: Bot, update: Update):
 
         elif prev_match:
             curr_page = int(prev_match.group(1))
-            query.message.reply_text(tld(chat.id, "send-help").format(dispatcher.bot.first_name,
-                                                                      "" if not ALLOW_EXCL else tld(chat.id,
+            query.message.reply_text(tld(chat.id, "send-help").format(bl4ckdr4g0n.dispatcher.bot.first_name,
+                                                                      "" if not bl4ckdr4g0n.ALLOW_EXCL else tld(chat.id,
                                                                                                     "\nAll commands can either be used with `/` or `!`.\n")),
                                      parse_mode=ParseMode.MARKDOWN,
                                      reply_markup=InlineKeyboardMarkup(
@@ -354,16 +354,16 @@ def help_button(bot: Bot, update: Update):
 
         elif next_match:
             next_page = int(next_match.group(1))
-            query.message.reply_text(tld(chat.id, "send-help").format(dispatcher.bot.first_name,
-                                                                      "" if not ALLOW_EXCL else tld(chat.id,
+            query.message.reply_text(tld(chat.id, "send-help").format(bl4ckdr4g0n.dispatcher.bot.first_name,
+                                                                      "" if not bl4ckdr4g0n.ALLOW_EXCL else tld(chat.id,
                                                                                                     "\nAll commands can either be used with `/` or `!`.\n")),
                                      parse_mode=ParseMode.MARKDOWN,
                                      reply_markup=InlineKeyboardMarkup(
                                          paginate_modules(chat.id, next_page + 1, HELPABLE, "help")))
 
         elif back_match:
-            query.message.reply_text(text=tld(chat.id, "send-help").format(dispatcher.bot.first_name,
-                                                                           "" if not ALLOW_EXCL else tld(chat.id,
+            query.message.reply_text(text=tld(chat.id, "send-help").format(bl4ckdr4g0n.dispatcher.bot.first_name,
+                                                                           "" if not bl4ckdr4g0n.ALLOW_EXCL else tld(chat.id,
                                                                                                          "\nAll commands can either be used with `/` or `!`.\n")),
                                      parse_mode=ParseMode.MARKDOWN,
                                      reply_markup=InlineKeyboardMarkup(
@@ -380,7 +380,7 @@ def help_button(bot: Bot, update: Update):
         elif excp.message == "Message can't be deleted":
             pass
         else:
-            LOGGER.exception("Exception in help buttons. %s", str(query.data))
+            bl4ckdr4g0n.LOGGER.exception("Exception in help buttons. %s", str(query.data))
 
 
 @run_async
@@ -411,7 +411,7 @@ def get_help(bot: Bot, update: Update):
                   InlineKeyboardMarkup([[InlineKeyboardButton(text=tld(chat.id, "Back"), callback_data="help_back")]]))
 
     else:
-        send_help(chat.id, tld(chat.id, "send-help").format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else tld(
+        send_help(chat.id, tld(chat.id, "send-help").format(bl4ckdr4g0n.dispatcher.bot.first_name, "" if not bl4ckdr4g0n.ALLOW_EXCL else tld(
             chat.id, "\nAll commands can either be used with `/` or `!`.\n"
         )))
 
@@ -421,25 +421,25 @@ def send_settings(chat_id, user_id, user=False):
         if USER_SETTINGS:
             settings = "\n\n".join(
                 "*{}*:\n{}".format(mod.__mod_name__, mod.__user_settings__(user_id)) for mod in USER_SETTINGS.values())
-            dispatcher.bot.send_message(user_id, "These are your current settings:" + "\n\n" + settings,
-                                        parse_mode=ParseMode.MARKDOWN)
+            bl4ckdr4g0n.dispatcher.bot.send_message(user_id, "These are your current settings:" + "\n\n" + settings,
+                                                    parse_mode=ParseMode.MARKDOWN)
 
         else:
-            dispatcher.bot.send_message(user_id, "Seems like there aren't any user specific settings available :'(",
-                                        parse_mode=ParseMode.MARKDOWN)
+            bl4ckdr4g0n.dispatcher.bot.send_message(user_id, "Seems like there aren't any user specific settings available :'(",
+                                                    parse_mode=ParseMode.MARKDOWN)
 
     else:
         if CHAT_SETTINGS:
-            chat_name = dispatcher.bot.getChat(chat_id).title
-            dispatcher.bot.send_message(user_id,
-                                        text="Which module would you like to check {}'s settings for?".format(
+            chat_name = bl4ckdr4g0n.dispatcher.bot.getChat(chat_id).title
+            bl4ckdr4g0n.dispatcher.bot.send_message(user_id,
+                                                    text="Which module would you like to check {}'s settings for?".format(
                                             chat_name),
-                                        reply_markup=InlineKeyboardMarkup(
+                                                    reply_markup=InlineKeyboardMarkup(
                                             paginate_modules(user_id, 0, CHAT_SETTINGS, "stngs", chat=chat_id)))
         else:
-            dispatcher.bot.send_message(user_id, "Seems like there aren't any chat settings available :'(\nSend this "
+            bl4ckdr4g0n.dispatcher.bot.send_message(user_id, "Seems like there aren't any chat settings available :'(\nSend this "
                                                  "in a group chat you're admin in to find its current settings!",
-                                        parse_mode=ParseMode.MARKDOWN)
+                                                    parse_mode=ParseMode.MARKDOWN)
 
 
 @run_async
@@ -504,7 +504,7 @@ def settings_button(bot: Bot, update: Update):
         elif excp.message == "Message can't be deleted":
             pass
         else:
-            LOGGER.exception("Exception in settings buttons. %s", str(query.data))
+            bl4ckdr4g0n.LOGGER.exception("Exception in settings buttons. %s", str(query.data))
 
 
 @run_async
@@ -541,11 +541,11 @@ def migrate_chats(bot: Bot, update: Update):
     else:
         return
 
-    LOGGER.info("Migrating from %s, to %s", str(old_chat), str(new_chat))
+    bl4ckdr4g0n.LOGGER.info("Migrating from %s, to %s", str(old_chat), str(new_chat))
     for mod in MIGRATEABLE:
         mod.__migrate__(old_chat, new_chat)
 
-    LOGGER.info("Successfully migrated!")
+    bl4ckdr4g0n.LOGGER.info("Successfully migrated!")
     raise DispatcherHandlerStop
 
 
@@ -557,12 +557,12 @@ def main():
     help_callback_handler = CallbackQueryHandler(help_button, pattern=r"help_")
 
     start_callback_handler = CallbackQueryHandler(send_start, pattern=r"bot_start")
-    dispatcher.add_handler(start_callback_handler)
+    bl4ckdr4g0n.dispatcher.add_handler(start_callback_handler)
 
     cntrl_panel = CommandHandler("controlpanel", control_panel)
     cntrl_panel_callback_handler = CallbackQueryHandler(control_panel, pattern=r"cntrl_panel")
-    dispatcher.add_handler(cntrl_panel_callback_handler)
-    dispatcher.add_handler(cntrl_panel)
+    bl4ckdr4g0n.dispatcher.add_handler(cntrl_panel_callback_handler)
+    bl4ckdr4g0n.dispatcher.add_handler(cntrl_panel)
 
     settings_handler = CommandHandler("settings", get_settings)
     settings_callback_handler = CallbackQueryHandler(settings_button, pattern=r"stngs_")
@@ -570,35 +570,35 @@ def main():
     migrate_handler = MessageHandler(Filters.status_update.migrate, migrate_chats)
 
     # dispatcher.add_handler(test_handler)
-    dispatcher.add_handler(start_handler)
-    dispatcher.add_handler(help_handler)
-    dispatcher.add_handler(settings_handler)
-    dispatcher.add_handler(help_callback_handler)
-    dispatcher.add_handler(settings_callback_handler)
-    dispatcher.add_handler(migrate_handler)
+    bl4ckdr4g0n.dispatcher.add_handler(start_handler)
+    bl4ckdr4g0n.dispatcher.add_handler(help_handler)
+    bl4ckdr4g0n.dispatcher.add_handler(settings_handler)
+    bl4ckdr4g0n.dispatcher.add_handler(help_callback_handler)
+    bl4ckdr4g0n.dispatcher.add_handler(settings_callback_handler)
+    bl4ckdr4g0n.dispatcher.add_handler(migrate_handler)
 
     # dispatcher.add_error_handler(error_callback)
 
     # add antiflood processor
     Dispatcher.process_update = process_update
 
-    if WEBHOOK:
-        LOGGER.info("Using webhooks.")
-        updater.start_webhook(listen="0.0.0.0",
-                              port=PORT,
-                              url_path=TOKEN)
+    if bl4ckdr4g0n.WEBHOOK:
+        bl4ckdr4g0n.LOGGER.info("Using webhooks.")
+        bl4ckdr4g0n.updater.start_webhook(listen="0.0.0.0",
+                                          port=bl4ckdr4g0n.PORT,
+                                          url_path=bl4ckdr4g0n.TOKEN)
 
-        if CERT_PATH:
-            updater.bot.set_webhook(url=URL + TOKEN,
-                                    certificate=open(CERT_PATH, 'rb'))
+        if bl4ckdr4g0n.CERT_PATH:
+            bl4ckdr4g0n.updater.bot.set_webhook(url=bl4ckdr4g0n.URL + bl4ckdr4g0n.TOKEN,
+                                                certificate=open(bl4ckdr4g0n.CERT_PATH, 'rb'))
         else:
-            updater.bot.set_webhook(url=URL + TOKEN)
+            bl4ckdr4g0n.updater.bot.set_webhook(url=bl4ckdr4g0n.URL + bl4ckdr4g0n.TOKEN)
 
     else:
-        LOGGER.info("Using long polling.")
-        updater.start_polling(timeout=15, read_latency=4)
+        bl4ckdr4g0n.LOGGER.info("Using long polling.")
+        bl4ckdr4g0n.updater.start_polling(timeout=15, read_latency=4)
 
-    updater.idle()
+    bl4ckdr4g0n.updater.idle()
 
 
 CHATS_CNT = {}
@@ -654,6 +654,8 @@ def process_update(self, update):
         # Errors should not stop the thread.
         except Exception:
             self.logger.exception('An uncaught error was raised while processing the update')
+
+
 if __name__ == '__main__':
     bl4ckdr4g0n.LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
     bl4ckdr4g0n.LOGGER.info("Successfully loaded")
