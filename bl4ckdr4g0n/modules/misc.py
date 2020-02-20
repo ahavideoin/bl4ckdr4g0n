@@ -604,7 +604,6 @@ LYRICS_HANDLER = DisableAbleCommandHandler("lyrics", lyrics, pass_args=True, adm
 
 RUNS_HANDLER = DisableAbleCommandHandler("runs", runs, admin_ok=True)
 BOT_HANDLER = DisableAbleCommandHandler("bot", bot, admin_ok=True)
-RAPE_HANDLER = DisableAbleCommandHandler("rape", rape, admin_ok=True)
 SHRUG_HANDLER = DisableAbleCommandHandler("shrug", shrug, admin_ok=True)
 PUBG_HANDLER = DisableAbleCommandHandler("pubg", pubg, admin_ok=True)
 SLAP_HANDLER = DisableAbleCommandHandler("slap", slap, pass_args=True, admin_ok=True)
