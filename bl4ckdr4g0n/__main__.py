@@ -655,8 +655,8 @@ def process_update(self, update):
         except Exception:
             self.logger.exception('An uncaught error was raised while processing the update')
 if __name__ == '__main__':
-    LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
-    LOGGER.info("Successfully loaded")
+    bl4ckdr4g0n.LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
+    bl4ckdr4g0n.LOGGER.info("Successfully loaded")
     main()
 
 """𝕭𝖑𝖆𝖈𝖐𝕯𝖗𝖆𝖌𝖔𝖓 bot
