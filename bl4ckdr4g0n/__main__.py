@@ -9,10 +9,9 @@ from telegram.error import Unauthorized, BadRequest, TimedOut, NetworkError, Cha
 from telegram.ext import CommandHandler, Filters, MessageHandler, CallbackQueryHandler
 from telegram.ext.dispatcher import run_async, DispatcherHandlerStop, Dispatcher
 from telegram.utils.helpers import escape_markdown
-
-import bl4ckdr4g0n
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
+from bl4ckdr4g0n import dispatcher, updater, TOKEN, WEBHOOK, SUDO_USERS, CERT_PATH, PORT, URL, LOGGER, ALLOW_EXCL
 from bl4ckdr4g0n.modules import ALL_MODULES
 from bl4ckdr4g0n.modules.connection import connected
 from bl4ckdr4g0n.modules.helper_funcs.chat_status import is_user_admin
