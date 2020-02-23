@@ -9,8 +9,8 @@ from telegram.ext import CommandHandler, Filters, MessageHandler, CallbackQueryH
 from telegram.ext.dispatcher import run_async, DispatcherHandlerStop
 from telegram.utils.helpers import escape_markdown
 
-from bl4ckdr4g0n import dispatcher, updater, TOKEN, WEBHOOK, OWNER_ID, DONATION_LINK, CERT_PATH, PORT, URL, LOGGER, \
-    ALLOW_EXCL
+import bl4ckdr4g0n
+from bl4ckdr4g0n import ALLOW_EXCL
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
 from bl4ckdr4g0n.modules import ALL_MODULES
