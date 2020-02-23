@@ -1,4 +1,3 @@
-import datetime
 import importlib
 import re
 from typing import Optional, List
@@ -7,18 +6,16 @@ from telegram import Message, Chat, Update, Bot, User
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.error import Unauthorized, BadRequest, TimedOut, NetworkError, ChatMigrated, TelegramError
 from telegram.ext import CommandHandler, Filters, MessageHandler, CallbackQueryHandler
-from telegram.ext.dispatcher import run_async, DispatcherHandlerStop, Dispatcher
+from telegram.ext.dispatcher import run_async, DispatcherHandlerStop
 from telegram.utils.helpers import escape_markdown
-import bl4ckdr4g0n
-from bl4ckdr4g0n import ALLOW_EXCL
+
+from bl4ckdr4g0n import dispatcher, updater, TOKEN, WEBHOOK, OWNER_ID, DONATION_LINK, CERT_PATH, PORT, URL, LOGGER, \
+    ALLOW_EXCL
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
 from bl4ckdr4g0n.modules import ALL_MODULES
-from bl4ckdr4g0n.modules.connection import connected
 from bl4ckdr4g0n.modules.helper_funcs.chat_status import is_user_admin
 from bl4ckdr4g0n.modules.helper_funcs.misc import paginate_modules
-from bl4ckdr4g0n.modules.translations.strings import tld, tld_help
-
 PM_START = """Hello {}, my name is {}!
 I'm here to help you manage your groups!.
 you can meet my master in this [Group](https://t.me/joinchat/EnD9SkO9Awougo5VjknbrQ)
