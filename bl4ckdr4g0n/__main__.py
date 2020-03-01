@@ -100,13 +100,12 @@ def test(bot: Bot, update: Update):
 @run_async
 def start(bot: Bot, update: Update, args: List[str]):
     chat = update.effective_chat  # type: Optional[Chat]
-    darkweb = bl4ckdr4g0n.dispatcher.bot.first_name
     #query = update.callback_query #Unused variable
     if update.effective_chat.type == "private":
         if len(args) >= 1:
             if args[0].lower() == "help":
                 send_help(update.effective_chat.id, tld(chat.id, "send-help").format(
-                     darkweb, "" if not ALLOW_EXCL else tld(
+                     bl4ckdr4g0n.dispatcher.bot.first_name, "" if not ALLOW_EXCL else tld(
                          chat.id, "\nAll commands can either be used with `/` or `!`.\n"
                              )))
 
