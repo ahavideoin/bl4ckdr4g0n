@@ -105,7 +105,7 @@ def start(bot: Bot, update: Update, args: List[str]):
         if len(args) >= 1:
             if args[0].lower() == "help":
                 send_help(update.effective_chat.id, tld(chat.id, "send-help").format(
-                     dispatcher.bot.first_name, "" if not ALLOW_EXCL else tld(
+                     "" if not ALLOW_EXCL else tld(
                          chat.id, "\nAll commands can either be used with `/` or `!`.\n"
                              )))
 
