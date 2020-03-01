@@ -99,30 +99,37 @@ def test(bot: Bot, update: Update):
 
 @run_async
 def start(bot: Bot, update: Update, args: List[str]):
-    global match
     chat = update.effective_chat  # type: Optional[Chat]
-    query = update.callback_query
+    #query = update.callback_query #Unused variable
     if update.effective_chat.type == "private":
         if len(args) >= 1:
             if args[0].lower() == "help":
                 send_help(update.effective_chat.id, tld(chat.id, "send-help").format(
-                    "" if not bl4ckdr4g0n.ALLOW_EXCL else tld(chat.id, "\nAll commands can either be used with `/` or `!`.\n")))
+                     dispatcher.bot.first_name, "" if not ALLOW_EXCL else tld(
+                         chat.id, "\nAll commands can either be used with `/` or `!`.\n"
+                             )))
 
             elif args[0].lower().startswith("stngs_"):
                 match = re.match("stngs_(.*)", args[0].lower())
+                chat = dispatcher.bot.getChat(match.group(1))
 
                 if is_user_admin(chat, update.effective_user.id):
-                    send_settings(match.group(1), update.effective_user.id, user=False)
+                    send_settings(match.group(1), update.effective_user.id, update, user=False)
                 else:
-                    send_settings(match.group(1), update.effective_user.id, user=True)
+                    send_settings(match.group(1), update.effective_user.id, update, user=True)
 
-            if args[0][1:].isdigit() and "rules" in IMPORTED:
+            elif args[0][1:].isdigit() and "rules" in IMPORTED:
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
+            elif args[0].lower() == "controlpanel":
+                control_panel(bot, update)
         else:
             send_start(bot, update)
     else:
-        update.effective_message.reply_text("hoi, i'm alive! PM me if you want some help.")
+        try:
+            update.effective_message.reply_text("Hoi, i'm alive! PM me if you want some help ❤️")
+        except:
+            print("Nut")
 
 
 def send_start(bot, update):
@@ -137,7 +144,8 @@ def send_start(bot, update):
     first_name = update.effective_user.first_name
     text = PM_START
 
-    keyboard = [[InlineKeyboardButton(text="🛠 Control panel", callback_data="cntrl_panel_M")]]
+    keyboard = [[InlineKeyboardButton(text="🛠 Control panel", callback_data="cntrl_panel_M"),
+                 InlineKeyboardButton(text="📢 Support Group", url="https://t.me/miss_pious")]]
     keyboard += [[InlineKeyboardButton(text="🇺🇸 Language", callback_data="set_lang_"),
                   InlineKeyboardButton(text="❔ Help", callback_data="help_back")]]
 
