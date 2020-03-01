@@ -110,7 +110,8 @@ def get_id(bot: Bot, update: Update, args: List[str]):
                 parse_mode=ParseMode.MARKDOWN)
         else:
             user = bot.get_chat(user_id)
-            update.effective_message.reply_text(tld(chat.id, "{}'s id is `{}`.").format(escape_markdown(user.first_name), user.id),
+            user1 = update.message.from_user
+            update.effective_message.reply_text(tld(chat.id, "{}'s id: `{}` \nYour id: `{}` \nChat id: `{}`").format(escape_markdown(user.first_name), user.id, user1['id'], chat.id),
                                                 parse_mode=ParseMode.MARKDOWN)
     else:
         chat = update.effective_chat  # type: Optional[Chat]
@@ -119,7 +120,9 @@ def get_id(bot: Bot, update: Update, args: List[str]):
                                                 parse_mode=ParseMode.MARKDOWN)
 
         else:
-            update.effective_message.reply_text(tld(chat.id, "This group's id is `{}`.").format(chat.id),
+            user = update.message.from_user
+                      
+            update.effective_message.reply_text(tld(chat.id, "Your id: `{}` \nChat id: `{}`").format(user['id'], chat.id),
                                                 parse_mode=ParseMode.MARKDOWN)
 
 
@@ -597,7 +600,7 @@ __mod_name__ = "Misc"
 
 ID_HANDLER = DisableAbleCommandHandler("id", get_id, pass_args=True, admin_ok=True)
 TIME_HANDLER = CommandHandler("time", get_time, pass_args=True)
-PING_HANDLER = DisableAbleCommandHandler("ping", ping, admin_ok=True)
+#PING_HANDLER = DisableAbleCommandHandler("ping", ping, admin_ok=True)
 #GOOGLE_HANDLER = DisableAbleCommandHandler("google", google)
 LYRICS_HANDLER = DisableAbleCommandHandler("lyrics", lyrics, pass_args=True, admin_ok=True)
 
