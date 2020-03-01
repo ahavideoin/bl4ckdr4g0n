@@ -20,9 +20,9 @@ from bl4ckdr4g0n.modules.helper_funcs.misc import paginate_modules
 from bl4ckdr4g0n.modules.translations.strings import tld, tld_help
 PM_START = """Hello {}, my name is {}!
 I'm here to help you manage your groups!.
-you can meet my master in this [Group](https://t.me/joinchat/EnD9SkO9Awougo5VjknbrQ)
+you can meet my master in this [Group](https://t.me/joinchat/Miss_Pious)
 you can ask everything about me in [Support Group](https://t.me/Miss_Pious)
-I'm a group manager bot and my master is [@jnldkbmk](https://t.me/jnldkbmk)
+I'm a group manager bot and my noob master is [@SourabhXD](https://t.me/SourabhXD)
 Want to add me to your group? [Click here!](t.me/PiousS_bot?startgroup=true)
 Click (Help) button to find out more.
 """
