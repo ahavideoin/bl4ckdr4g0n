@@ -7,21 +7,21 @@ from telegram import Message, Chat, Update, Bot
 from telegram.error import BadRequest
 from telegram.ext import CommandHandler, run_async, Filters
 
-import haruka.modules.sql.notes_sql as sql
-from haruka import dispatcher, LOGGER, OWNER_ID, SUDO_USERS, MESSAGE_DUMP
-from haruka.__main__ import DATA_IMPORT
-from haruka.modules.helper_funcs.chat_status import user_admin
-from haruka.modules.helper_funcs.misc import build_keyboard, revert_buttons
-from haruka.modules.helper_funcs.msg_types import get_note_type
-from haruka.modules.rules import get_rules
-import haruka.modules.sql.rules_sql as rulessql
-from haruka.modules.sql import warns_sql as warnssql
-import haruka.modules.sql.blacklist_sql as blacklistsql
-from haruka.modules.sql import disable_sql as disabledsql
-from haruka.modules.sql import cust_filters_sql as filtersql
-import haruka.modules.sql.welcome_sql as welcsql
-import haruka.modules.sql.locks_sql as locksql
-from haruka.modules.connection import connected
+import bl4ckdr4g0n.modules.sql.notes_sql as sql
+from bl4ckdr4g0n import dispatcher, LOGGER, OWNER_ID, SUDO_USERS, MESSAGE_DUMP
+from bl4ckdr4g0n.__main__ import DATA_IMPORT
+from bl4ckdr4g0n.modules.helper_funcs.chat_status import user_admin
+from bl4ckdr4g0n.modules.helper_funcs.misc import build_keyboard, revert_buttons
+from bl4ckdr4g0n.modules.helper_funcs.msg_types import get_note_type
+from bl4ckdr4g0n.modules.rules import get_rules
+import bl4ckdr4g0n.modules.sql.rules_sql as rulessql
+from bl4ckdr4g0n.modules.sql import warns_sql as warnssql
+import bl4ckdr4g0n.modules.sql.blacklist_sql as blacklistsql
+from bl4ckdr4g0n.modules.sql import disable_sql as disabledsql
+from bl4ckdr4g0n.modules.sql import cust_filters_sql as filtersql
+import bl4ckdr4g0n.modules.sql.welcome_sql as welcsql
+import bl4ckdr4g0n.modules.sql.locks_sql as locksql
+from bl4ckdr4g0n.modules.connection import connected
 
 @run_async
 @user_admin
@@ -72,11 +72,11 @@ def import_data(bot: Bot, update):
 					text = "Backup comes from another chat, I can't return another chat to this chat"
 				return msg.reply_text(text, parse_mode="markdown")
 		except:
-			return msg.reply_text("There is problem while importing the data! Please ask in @LucySupportChat about why this happened.")
+			return msg.reply_text("There is problem while importing the data! Please ask in @Miss_Pious about why this happened.")
 		# Check if backup is from self
 		try:
 			if str(bot.id) != str(data[str(chat.id)]['bot']):
-				return msg.reply_text("Backup from another bot that is not suggested might cause the problem, documents, photos, videos, audios, records might not work as it should be. However, You can still request a feature regarding this in @LucySupportChat !")
+				return msg.reply_text("Backup from another bot that is not suggested might cause the problem, documents, photos, videos, audios, records might not work as it should be. However, You can still request a feature regarding this in @Miss_Pious !")
 		except:
 			pass
 		# Select data source
