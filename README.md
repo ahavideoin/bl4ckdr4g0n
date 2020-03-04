@@ -1,3 +1,6 @@
+# Miss-Pious-Bot
+sister of 
+
 # dr4g0n-bot
 
 ## Deploy
@@ -9,12 +12,16 @@ A modular telegram Python bot running on python3 with an sqlalchemy database.
 Originally a simple group management bot with multiple admin features, it has evolved, becoming extremely modular and 
 simple to use.
 
-Can be found on telegram as [𝕭𝖑𝖆𝖈𝖐𝕯𝖗𝖆𝖌𝖔𝖓](https://t.me/dr4gonbot).
+Can be found on telegram as [Miss Pious](https://t.me/PiousS_bot).
 
-We've a [learning group](https://t.me/joinchat/EnD9SkO9Awougo5VjknbrQ),
+We've a [Support group](https://t.me/Miss_Pious),
 
-Join the [learning channel](https://t.me/EnglishFreeLectures) For Free Knowledge.
+Join the [Bot Updates channel](https://t.me/MissPious) For New Updates of Bot
 
-Alternatively, [find me on telegram](https://t.me/virtualjust0and1)! (Keep all support questions in the support chat, where more people can help you.)
+Alternatively, [find me on telegram](https://t.me/SourabhXD)! (Keep all support questions in the support chat, where more people can help you.)
 
-This Bot Is Made By [@virtualjust0and1](https://t.me/virtualjust0and1)
+This Bot Is Made with Love ❤️ by [@virtualjust0and1](https://t.me/virtualjust0and1) for
+
+[@SourabhXD](https://t.me/SourabhXD) Thanks and love for all brothers who helped [@SourabhXD](https://t.me/SourabhXD) to maintain and grow this bot.❤️   
+
+
